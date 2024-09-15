@@ -44,17 +44,4 @@ inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your t
 outputs = gr.Textbox(label="Mood and Suggestion")
 interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
 
-interface.launch() '''
-
-## Limitations:
-- The model i used is pretty good but sometimes it doesn't catch the complex feelings well, so it might get the mood wrong.
-
-- It's trained on English texts mostly, so it might not get things right with other languages or specific ways people talk.
-
-- The tips it gives based on your mood are very basic and might not fit everyone or every situation.
-
-## Challenges:
-**Model Limitations:** The model does well for simple sentiments but may not fully capture complex emotional moods.
-
-## Next Steps:
-Future improvements might include using more advanced models for better emotional understanding or creating a custom model for specific text types. Adding arabic version.
+interface.launch()'''
