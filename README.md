@@ -44,4 +44,4 @@ inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your t
 outputs = gr.Textbox(label="Mood and Suggestion")
 interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
 
-interface.launch()'''
+interface.launch()
