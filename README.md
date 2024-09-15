@@ -13,7 +13,7 @@ Model Link: https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-
 
 Model Type: DistilBERT is a streamlined version of BERT, designed to perform well while being computationally efficient.
 
-## The Code:
+### The Code:
 ```python
 import gradio as gr
 from transformers import pipeline
