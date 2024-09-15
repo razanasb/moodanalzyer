@@ -18,15 +18,14 @@ Model Type: DistilBERT is a streamlined version of BERT, designed to perform wel
 import gradio as gr
 from transformers import pipeline
 
-# Define the sentiment analysis pipeline
+# Load the sentiment analysis pipeline
 sentiment_analysis = pipeline("sentiment-analysis", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
 
-# Define a function to analyze the mood based on user input
+# Function to analyze user's mood based on input
 def analyze_mood(user_input):
-    # Get the result from the model
+    # Analyze the mood from the input text
     result = sentiment_analysis(user_input)[0]
-    
-    # Determine mood and provide suggestions
+    # Define mood and suggestion based on sentiment analysis
     if result["label"] == "POSITIVE":
         mood = "Happy"
         suggestion = "Keep doing what you're doing! 😊"
@@ -40,11 +39,12 @@ def analyze_mood(user_input):
     # Return mood and suggestion
     return "Your mood is: " + mood, suggestion
 
+# Define Gradio interface inputs and outputs directly without the '.inputs' or '.outputs' module
 inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your thoughts here...")
 outputs = gr.Textbox(label="Mood and Suggestion")
-interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
 
-interface.launch()
+# Create and launch the Gradio interface
+gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer").launch()
 ```
 
 ## Limitations:
