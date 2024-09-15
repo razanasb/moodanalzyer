@@ -10,9 +10,44 @@ I chose the distilbert-base-uncased-finetuned-sst-2-english model because it's d
 
 ## Model Details
 Model Link: https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english
+
 Model Type: DistilBERT is a streamlined version of BERT, designed to perform well while being computationally efficient.
 
 ## The Code:
+```python
+import gradio as gr
+from transformers import pipeline
+
+# Define the sentiment analysis pipeline
+sentiment_analysis = pipeline("sentiment-analysis", model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
+
+# Define a function to analyze the mood based on user input
+def analyze_mood(user_input):
+    # Get the result from the model
+    result = sentiment_analysis(user_input)[0]
+    
+    # Determine mood and provide suggestions
+    if result["label"] == "POSITIVE":
+        mood = "Happy"
+        suggestion = "Keep doing what you're doing! 😊"
+    elif result["label"] == "NEGATIVE":
+        mood = "Sad"
+        suggestion = "Try to talk to someone, or take a break 💡"
+    else:
+        mood = "Neutral"
+        suggestion = "You're doing okay! Stay calm 🌸"
+    
+    # Return mood and suggestion
+    return "Your mood is: " + mood, suggestion
+
+# Setup Gradio interface
+inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your thoughts here...")
+outputs = gr.Textbox(label="Mood and Suggestion")
+interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
+
+# Launch the app
+interface.launch()
+'''
 
 ## Limitations:
 - The model i used is pretty good but sometimes it doesn't catch the complex feelings well, so it might get the mood wrong.
