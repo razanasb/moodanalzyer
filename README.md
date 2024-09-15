@@ -44,7 +44,7 @@ inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your t
 outputs = gr.Textbox(label="Mood and Suggestion")
 interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
 
-interface.launch()
+interface.launch() '''
 
 ## Limitations:
 - The model i used is pretty good but sometimes it doesn't catch the complex feelings well, so it might get the mood wrong.
