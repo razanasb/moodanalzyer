@@ -64,3 +64,6 @@ interface.launch()
 
 ## Next Steps:
 Future improvements might include using more advanced models for better emotional understanding or creating a custom model for specific text types. Adding arabic version.
+
+## Code Explaination :
+https://youtu.be/W0QNDh5s?s7gZ
