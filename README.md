@@ -40,14 +40,11 @@ def analyze_mood(user_input):
     # Return mood and suggestion
     return "Your mood is: " + mood, suggestion
 
-# Setup Gradio interface
 inputs = gr.Textbox(label="How are you feeling today?", placeholder="Type your thoughts here...")
 outputs = gr.Textbox(label="Mood and Suggestion")
 interface = gr.Interface(fn=analyze_mood, inputs=inputs, outputs=outputs, title="Mood Analyzer")
 
-# Launch the app
 interface.launch()
-'''
 
 ## Limitations:
 - The model i used is pretty good but sometimes it doesn't catch the complex feelings well, so it might get the mood wrong.
